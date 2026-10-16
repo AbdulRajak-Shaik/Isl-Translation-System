@@ -129,9 +129,11 @@ export const TrainingStudio: React.FC<TrainingStudioProps> = ({
   };
 
   const pollTraining = (jobId: string) => {
+    let consecutiveErrors = 0;
     const interval = window.setInterval(async () => {
       try {
         const job: TrainJobStatus = await pollTrainJobStatus(jobId);
+        consecutiveErrors = 0;
         setTrainStatus(job);
 
         if (job.status === 'completed') {
@@ -161,9 +163,12 @@ export const TrainingStudio: React.FC<TrainingStudioProps> = ({
           setErrorMessage(job.error || 'Training encountered an error.');
         }
       } catch (err: any) {
-        clearInterval(interval);
-        setIsTraining(false);
-        setErrorMessage(err.message || 'Failed to poll training progress');
+        consecutiveErrors++;
+        if (consecutiveErrors >= 3) {
+          clearInterval(interval);
+          setIsTraining(false);
+          setErrorMessage(err.message || 'Failed to poll training progress');
+        }
       }
     }, 1500);
   };

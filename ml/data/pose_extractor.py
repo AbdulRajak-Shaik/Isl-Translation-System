@@ -10,10 +10,21 @@ import numpy as np
 import cv2
 
 try:
-    import mediapipe as mp
+    import mediapipe.python.solutions.holistic as mp_holistic_module
+    mp_holistic_cls = mp_holistic_module.Holistic
     MEDIAPIPE_AVAILABLE = True
-except ImportError:
-    MEDIAPIPE_AVAILABLE = False
+except Exception:
+    try:
+        import mediapipe as mp
+        if hasattr(mp, "solutions") and hasattr(mp.solutions, "holistic"):
+            mp_holistic_cls = mp.solutions.holistic.Holistic
+            MEDIAPIPE_AVAILABLE = True
+        else:
+            mp_holistic_cls = None
+            MEDIAPIPE_AVAILABLE = False
+    except Exception:
+        mp_holistic_cls = None
+        MEDIAPIPE_AVAILABLE = False
 
 
 class PoseExtractor:
@@ -42,13 +53,12 @@ class PoseExtractor:
         self._holistic = None
 
     def _get_holistic(self):
-        if not MEDIAPIPE_AVAILABLE:
+        if not MEDIAPIPE_AVAILABLE or mp_holistic_cls is None:
             raise RuntimeError(
-                "mediapipe is not installed. Please install mediapipe to extract landmarks."
+                "MediaPipe Holistic is not available. Please install a compatible mediapipe version (<=0.10.14)."
             )
         if self._holistic is None:
-            mp_holistic = mp.solutions.holistic
-            self._holistic = mp_holistic.Holistic(
+            self._holistic = mp_holistic_cls(
                 static_image_mode=False,
                 model_complexity=self.model_complexity,
                 min_detection_confidence=self.min_detection_confidence,
@@ -66,8 +76,12 @@ class PoseExtractor:
         Processes a single RGB frame and extracts raw 75 keypoint coordinates (75, 3).
         If a landmark group is not detected, it is filled with zeros.
         """
-        holistic = self._get_holistic()
-        results = holistic.process(rgb_frame)
+        try:
+            holistic = self._get_holistic()
+            results = holistic.process(rgb_frame)
+        except Exception:
+            # Fall back to zeros on unreadable frame or holistic failure
+            return np.zeros((self.TOTAL_KEYPOINTS, 3), dtype=np.float32)
 
         # 1. Left Hand (21 x 3)
         left_hand = np.zeros((self.NUM_HAND_KEYPOINTS, 3), dtype=np.float32)

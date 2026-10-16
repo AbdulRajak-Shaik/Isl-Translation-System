@@ -80,9 +80,11 @@ export const VideoUpload: React.FC<VideoUploadProps> = ({
   };
 
   const pollJob = (jobId: string) => {
+    let consecutiveErrors = 0;
     const interval = window.setInterval(async () => {
       try {
         const job = await pollJobStatus(jobId);
+        consecutiveErrors = 0;
         if (job.status === 'processing') {
           const progressPercent = Math.round(job.progress * 100);
           setProcessingStatus(`Processing temporal sequence (${progressPercent}%)...`);
@@ -111,9 +113,12 @@ export const VideoUpload: React.FC<VideoUploadProps> = ({
           setErrorMessage(job.error || 'Video recognition failed.');
         }
       } catch (err: any) {
-        clearInterval(interval);
-        setIsProcessing(false);
-        setErrorMessage(err.message || 'Failed to monitor processing job');
+        consecutiveErrors++;
+        if (consecutiveErrors >= 3) {
+          clearInterval(interval);
+          setIsProcessing(false);
+          setErrorMessage(err.message || 'Failed to monitor processing job');
+        }
       }
     }, 1200);
   };

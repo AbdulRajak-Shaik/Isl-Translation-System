@@ -68,7 +68,16 @@ export async function uploadVideo(
 
 export async function pollJobStatus(jobId: string) {
   const res = await fetch(`${API_BASE_URL}/video/job/${jobId}`);
-  if (!res.ok) throw new Error('Failed to fetch job status');
+  if (!res.ok) {
+    let msg = `Job status check failed (${res.status})`;
+    try {
+      const data = await res.json();
+      if (data.detail) msg = data.detail;
+    } catch {
+      // ignore JSON parse error
+    }
+    throw new Error(msg);
+  }
   return res.json();
 }
 
@@ -144,7 +153,16 @@ export async function uploadAndTrainVideo(
 
 export async function pollTrainJobStatus(jobId: string) {
   const res = await fetch(`${API_BASE_URL}/video/train/${jobId}`);
-  if (!res.ok) throw new Error('Failed to fetch training job status');
+  if (!res.ok) {
+    let msg = `Training job status check failed (${res.status})`;
+    try {
+      const data = await res.json();
+      if (data.detail) msg = data.detail;
+    } catch {
+      // ignore JSON parse error
+    }
+    throw new Error(msg);
+  }
   return res.json();
 }
 
