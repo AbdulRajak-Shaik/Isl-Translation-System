@@ -96,16 +96,21 @@ class TrainingJobManager:
                 telugu_text = self.translator.translate(english_text).telugu_text
             job.telugu_ground_truth = telugu_text
 
-            # 2. Extract 3D Landmarks (Streaming, low memory)
+            # 2. Extract 3D Landmarks (Streaming, thread-isolated, low memory)
             job.stage = "Extracting 3D holistic landmarks (hands, face, torso)..."
             job.progress = 0.20
-            landmarks = self.pose_extractor.extract_from_video(
-                video_path,
-                target_fps=25,
-                max_frames=300,
-                max_dimension=480,
-                normalize=True,
-            )
+            extractor = PoseExtractor(model_complexity=0)
+            try:
+                landmarks = extractor.extract_from_video(
+                    video_path,
+                    target_fps=25,
+                    max_frames=300,
+                    max_dimension=480,
+                    normalize=True,
+                )
+            finally:
+                extractor.close()
+
             if landmarks is None or len(landmarks) == 0:
                 job.status = "failed"
                 job.error = "Could not extract landmark features from video."

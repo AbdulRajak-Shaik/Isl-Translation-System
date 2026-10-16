@@ -12,7 +12,6 @@ mediapipe==0.10.14
 gTTS>=2.4.0
 pyyaml>=6.0.1
 sacrebleu>=2.3.0
-evaluate>=0.4.0
 requests>=2.31.0
 pytest>=7.4.0
 httpx>=0.25.0

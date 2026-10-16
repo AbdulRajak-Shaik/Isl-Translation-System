@@ -66,14 +66,19 @@ class VideoJobManager:
 
             job.progress = 0.35
 
-            # 2. Extract Holistic Landmarks (Streaming, zero-copy frames)
-            pose_seq = self.pose_extractor.extract_from_video(
-                video_path,
-                target_fps=25,
-                max_frames=300,
-                max_dimension=480,
-                normalize=True,
-            )
+            # 2. Extract Holistic Landmarks (Streaming, thread-isolated, zero-copy frames)
+            extractor = PoseExtractor(model_complexity=0)
+            try:
+                pose_seq = extractor.extract_from_video(
+                    video_path,
+                    target_fps=25,
+                    max_frames=300,
+                    max_dimension=480,
+                    normalize=True,
+                )
+            finally:
+                extractor.close()
+
             if pose_seq is None or len(pose_seq) == 0:
                 job.status = "failed"
                 job.error = "Could not extract landmark features from video."
