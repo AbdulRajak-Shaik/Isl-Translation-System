@@ -5,6 +5,7 @@ applies body-centric spatial normalization (mid-shoulder centering, scale invari
 and computes temporal motion dynamics.
 """
 
+import os
 from typing import List, Optional, Tuple
 import numpy as np
 import cv2
@@ -45,7 +46,7 @@ class PoseExtractor:
         self,
         min_detection_confidence: float = 0.5,
         min_tracking_confidence: float = 0.5,
-        model_complexity: int = 1,
+        model_complexity: int = 0,
     ):
         self.min_detection_confidence = min_detection_confidence
         self.min_tracking_confidence = min_tracking_confidence
@@ -163,5 +164,71 @@ class PoseExtractor:
             norm_seq = raw_seq
 
         # Flatten (T, 75, 3) -> (T, 225)
+        T = norm_seq.shape[0]
+        return norm_seq.reshape(T, self.FEATURE_DIM)
+
+    def extract_from_video(
+        self,
+        video_path: str,
+        target_fps: int = 25,
+        max_frames: int = 300,
+        max_dimension: int = 480,
+        normalize: bool = True,
+    ) -> np.ndarray:
+        """
+        Memory-efficient streaming extraction of 3D landmarks directly from video.
+        Only a single downscaled frame is held in RAM at a time to prevent OOM.
+        """
+        if not os.path.exists(video_path):
+            return np.zeros((0, self.FEATURE_DIM), dtype=np.float32)
+
+        cap = cv2.VideoCapture(video_path)
+        if not cap.isOpened():
+            return np.zeros((0, self.FEATURE_DIM), dtype=np.float32)
+
+        src_fps = cap.get(cv2.CAP_PROP_FPS)
+        if src_fps <= 0 or np.isnan(src_fps):
+            src_fps = 30.0
+
+        stride = max(1, round(src_fps / target_fps))
+        raw_sequence = []
+        frame_idx = 0
+
+        try:
+            while True:
+                ret, frame = cap.read()
+                if not ret or frame is None:
+                    break
+
+                if frame_idx % stride == 0:
+                    h, w = frame.shape[:2]
+                    if max(h, w) > max_dimension:
+                        scale = max_dimension / float(max(h, w))
+                        new_w, new_h = int(w * scale), int(h * scale)
+                        frame = cv2.resize(frame, (new_w, new_h), interpolation=cv2.INTER_AREA)
+
+                    rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                    kpts = self.extract_landmarks_from_frame(rgb_frame)
+                    raw_sequence.append(kpts)
+
+                    del frame
+                    del rgb_frame
+
+                    if max_frames and len(raw_sequence) >= max_frames:
+                        break
+
+                frame_idx += 1
+        finally:
+            cap.release()
+
+        if not raw_sequence:
+            return np.zeros((0, self.FEATURE_DIM), dtype=np.float32)
+
+        raw_seq = np.array(raw_sequence, dtype=np.float32)
+        if normalize:
+            norm_seq = self.normalize_keypoints(raw_seq)
+        else:
+            norm_seq = raw_seq
+
         T = norm_seq.shape[0]
         return norm_seq.reshape(T, self.FEATURE_DIM)

@@ -66,20 +66,22 @@ class VideoJobManager:
 
             job.progress = 0.35
 
-            # 2. Sample Frames
-            frames = self.video_processor.sample_frames(video_path)
-            if not frames:
+            # 2. Extract Holistic Landmarks (Streaming, zero-copy frames)
+            pose_seq = self.pose_extractor.extract_from_video(
+                video_path,
+                target_fps=25,
+                max_frames=300,
+                max_dimension=480,
+                normalize=True,
+            )
+            if pose_seq is None or len(pose_seq) == 0:
                 job.status = "failed"
-                job.error = "Could not extract any valid video frames."
+                job.error = "Could not extract landmark features from video."
                 return
 
-            job.progress = 0.60
-
-            # 3. Extract Holistic Landmarks
-            pose_seq = self.pose_extractor.process_frames(frames, normalize=True)
             job.progress = 0.80
 
-            # 4. Run Continuous Translation & Speech Synthesis
+            # 3. Run Continuous Translation & Speech Synthesis
             service = InferenceService.get_instance()
             trans_res = service.translate_pose_sequence(pose_seq, provisional=False)
 

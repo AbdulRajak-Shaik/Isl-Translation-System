@@ -7,7 +7,7 @@ COPY frontend/ ./
 RUN npm run build
 
 # Stage 2: Python Backend Runtime
-FROM python:3.12-slim
+FROM python:3.11-slim
 WORKDIR /app
 
 # Install system dependencies for OpenCV and MediaPipe
