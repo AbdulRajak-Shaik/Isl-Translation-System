@@ -24,8 +24,12 @@ export const LiveCamera: React.FC<LiveCameraProps> = ({
 
   // Initialize WebSocket client
   useEffect(() => {
-    const wsUrl = (location.protocol === 'https:' ? 'wss://' : 'ws://') + 
-                  (import.meta.env.VITE_WS_URL || 'localhost:8000/api/v1/live/ws');
+    const wsHost =
+      import.meta.env.VITE_WS_URL ||
+      (import.meta.env.VITE_API_HOST
+        ? `${import.meta.env.VITE_API_HOST}/api/v1/live/ws`
+        : 'localhost:8000/api/v1/live/ws');
+    const wsUrl = (location.protocol === 'https:' ? 'wss://' : 'ws://') + wsHost;
 
     const client = new LiveWebSocketClient(wsUrl, {
       onStatusChange: (status) => setWsStatus(status),

@@ -1,6 +1,9 @@
 import type { ModelStatus } from '../types/translation';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1';
+const apiHost = import.meta.env.VITE_API_HOST;
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL ||
+  (apiHost ? `https://${apiHost}/api/v1` : 'http://localhost:8000/api/v1');
 
 export async function fetchHealth() {
   const res = await fetch(`${API_BASE_URL}/health`);
