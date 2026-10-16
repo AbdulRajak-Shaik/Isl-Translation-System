@@ -1,36 +1,12 @@
 services:
-  # 1. Backend FastAPI Service
+  # Single-Entity Full-Stack Web Application (FastAPI + React Frontend)
   - type: web
-    name: isl-translation-backend
-    runtime: python
-    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
-    startCommand: uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
+    name: isl-translation-system
+    runtime: docker
     plan: free
     autoDeploy: true
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.11.9
-      - key: PYTHONPATH
-        value: .
+      - key: PORT
+        value: 8000
       - key: MODEL_DEVICE
         value: cpu
-      - key: CORS_ORIGINS
-        value: "*"
-
-  # 2. Frontend React / Vite Static Web App
-  - type: web
-    name: isl-translation-frontend
-    runtime: static
-    buildCommand: cd frontend && npm install && npm run build
-    staticPublishPath: ./frontend/dist
-    autoDeploy: true
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
-    envVars:
-      - key: VITE_API_HOST
-        fromService:
-          type: web
-          name: isl-translation-backend
-          property: host

@@ -1,9 +1,10 @@
 import type { ModelStatus } from '../types/translation';
 
 const apiHost = import.meta.env.VITE_API_HOST;
+const isViteDev = typeof window !== 'undefined' && window.location.port === '5173';
 const API_BASE_URL =
   import.meta.env.VITE_API_URL ||
-  (apiHost ? `https://${apiHost}/api/v1` : 'http://localhost:8000/api/v1');
+  (apiHost ? `https://${apiHost}/api/v1` : (isViteDev ? 'http://localhost:8000/api/v1' : '/api/v1'));
 
 export async function fetchHealth() {
   const res = await fetch(`${API_BASE_URL}/health`);

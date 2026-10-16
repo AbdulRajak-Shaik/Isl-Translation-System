@@ -46,14 +46,39 @@ async def startup_event():
         print(f"Warning: Model warm-up encountered: {e}")
 
 
-@app.get("/")
-def root():
-    return {
-        "name": settings.PROJECT_NAME,
-        "version": settings.VERSION,
-        "docs_url": "/docs",
-        "api_v1": settings.API_V1_STR,
-    }
+# Frontend SPA Static Assets and Fallback (Single Entity Deployment)
+frontend_dist_dir = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "frontend", "dist"
+)
+
+if os.path.exists(frontend_dist_dir):
+    assets_dir = os.path.join(frontend_dist_dir, "assets")
+    if os.path.exists(assets_dir):
+        app.mount("/assets", StaticFiles(directory=assets_dir), name="static_assets")
+
+    @app.get("/{full_path:path}")
+    async def serve_spa(full_path: str):
+        # Allow API endpoints, docs, and websocket routes to pass through untouched
+        if full_path.startswith(("api", "docs", "openapi.json", "redoc")):
+            from fastapi import HTTPException
+            raise HTTPException(status_code=404, detail="Not Found")
+
+        file_path = os.path.join(frontend_dist_dir, full_path)
+        if full_path and os.path.exists(file_path) and os.path.isfile(file_path):
+            from fastapi.responses import FileResponse
+            return FileResponse(file_path)
+
+        from fastapi.responses import FileResponse
+        return FileResponse(os.path.join(frontend_dist_dir, "index.html"))
+else:
+    @app.get("/")
+    def root():
+        return {
+            "name": settings.PROJECT_NAME,
+            "version": settings.VERSION,
+            "docs_url": "/docs",
+            "api_v1": settings.API_V1_STR,
+        }
 
 
 if __name__ == "__main__":
