@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.backend
+    container_name: isl-translation-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8000
+      - MODEL_DEVICE=cpu
+      - MODEL_CHECKPOINT_PATH=ml/checkpoints/isl_transformer_best.pt
+      - VOCAB_PATH=data/manifests/vocab.json
+      - AUTO_DELETE_PROCESSED_VIDEOS=true
+    volumes:
+      - ../data/manifests:/app/data/manifests
+      - ../ml/checkpoints:/app/ml/checkpoints
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.frontend
+    container_name: isl-translation-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped

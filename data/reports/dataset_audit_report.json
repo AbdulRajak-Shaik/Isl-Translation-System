@@ -1,0 +1,21 @@
+{
+  "summary": {
+    "dataset_name": "ISL_Continuously_Augmented",
+    "total_samples": 29,
+    "split_distribution": {
+      "train": 22,
+      "val": 7,
+      "test": 0
+    },
+    "total_duration_hours": 0.1,
+    "signer_count": 3,
+    "english_vocab_size": 33,
+    "gloss_vocab_size": 0,
+    "leakage_check_passed": false,
+    "created_at": "2026-10-15T15:58:04.533591"
+  },
+  "leakage_violations": [
+    "Signer leakage between Train and Val: {'signer_06', 'signer_nital', 'custom_signer'}",
+    "Video path duplicate between Train and Val: 5 files"
+  ]
+}

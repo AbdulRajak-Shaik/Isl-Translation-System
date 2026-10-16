@@ -1,0 +1,30 @@
+# Dockerfile for Backend Service
+FROM python:3.12-slim
+
+WORKDIR /app
+
+# Install system dependencies for OpenCV and MediaPipe
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    ffmpeg \
+    libsm6 \
+    libxext6 \
+    libgl1 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies
+COPY backend/requirements.txt requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy backend and ML source code
+COPY backend/ backend/
+COPY ml/ ml/
+COPY data/manifests/ data/manifests/
+
+ENV HOST=0.0.0.0
+ENV PORT=8000
+ENV PYTHONPATH=/app
+
+EXPOSE 8000
+
+CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -1,0 +1,681 @@
+[
+  {
+    "sample_id": "signer_nital_8830_orig",
+    "dataset_name": "ISL_Consolidated",
+    "video_path": "data/raw/nital_who_are_you.mp4",
+    "pose_path": "data/processed/nital_who_are_you.npy",
+    "signer_id": "signer_nital",
+    "task_type": "continuous_translation",
+    "english_text": "Who are you? I am Nital.",
+    "telugu_text": "మీరు ఎవరు? నేను నితల్.",
+    "gloss_tokens": [
+      "WHO",
+      "ARE",
+      "YOU",
+      "I",
+      "AM",
+      "NITAL"
+    ],
+    "split": "train",
+    "video_meta": {
+      "duration_sec": 15.0,
+      "fps": 25.0,
+      "frame_count": 375,
+      "width": 720,
+      "height": 1280,
+      "is_corrupt": false,
+      "sha256_checksum": ""
+    },
+    "landmark_meta": null
+  },
+  {
+    "sample_id": "signer_nital_8830_aug1",
+    "dataset_name": "ISL_Consolidated",
+    "video_path": "data/raw/nital_who_are_you.mp4",
+    "pose_path": "data/processed/nital_aug_01.npy",
+    "signer_id": "signer_nital",
+    "task_type": "continuous_translation",
+    "english_text": "Who are you? I am Nital.",
+    "telugu_text": "మీరు ఎవరు? నేను నితల్.",
+    "gloss_tokens": [
+      "WHO",
+      "ARE",
+      "YOU",
+      "I",
+      "AM",
+      "NITAL"
+    ],
+    "split": "train",
+    "video_meta": {
+      "duration_sec": 15.0,
+      "fps": 25.0,
+      "frame_count": 375,
+      "width": 720,
+      "height": 1280,
+      "is_corrupt": false,
+      "sha256_checksum": ""
+    },
+    "landmark_meta": null
+  },
+  {
+    "sample_id": "signer_nital_8830_aug2",
+    "dataset_name": "ISL_Consolidated",
+    "video_path": "data/raw/nital_who_are_you.mp4",
+    "pose_path": "data/processed/nital_aug_02.npy",
+    "signer_id": "signer_nital",
+    "task_type": "continuous_translation",
+    "english_text": "Who are you? I am Nital.",
+    "telugu_text": "మీరు ఎవరు? నేను నితల్.",
+    "gloss_tokens": [
+      "WHO",
+      "ARE",
+      "YOU",
+      "I",
+      "AM",
+      "NITAL"
+    ],
+    "split": "train",
+    "video_meta": {
+      "duration_sec": 15.0,
+      "fps": 25.0,
+      "frame_count": 375,
+      "width": 720,
+      "height": 1280,
+      "is_corrupt": false,
+      "sha256_checksum": ""
+    },
+    "landmark_meta": null
+  },
+  {
+    "sample_id": "signer_nital_8830_aug3",
+    "dataset_name": "ISL_Consolidated",
+    "video_path": "data/raw/nital_who_are_you.mp4",
+    "pose_path": "data/processed/nital_aug_03.npy",
+    "signer_id": "signer_nital",
+    "task_type": "continuous_translation",
+    "english_text": "Who are you? I am Nital.",
+    "telugu_text": "మీరు ఎవరు? నేను నితల్.",
+    "gloss_tokens": [
+      "WHO",
+      "ARE",
+      "YOU",
+      "I",
+      "AM",
+      "NITAL"
+    ],
+    "split": "train",
+    "video_meta": {
+      "duration_sec": 15.0,
+      "fps": 25.0,
+      "frame_count": 375,
+      "width": 720,
+      "height": 1280,
+      "is_corrupt": false,
+      "sha256_checksum": ""
+    },
+    "landmark_meta": null
+  },
+  {
+    "sample_id": "conv_sample_012_r0",
+    "dataset_name": "Conversational_ISL_Corpus",
+    "video_path": null,
+    "pose_path": "data/processed\\conv_sample_012_r0.npy",
+    "signer_id": "signer_06",
+    "task_type": "continuous_translation",
+    "english_text": "Who are you?",
+    "telugu_text": "మీరు ఎవరు?",
+    "gloss_tokens": [
+      "WHO",
+      "YOU"
+    ],
+    "split": "train",
+    "video_meta": {
+      "duration_sec": 1.48,
+      "fps": 25.0,
+      "frame_count": 37,
+      "width": 1280,
+      "height": 720,
+      "is_corrupt": false,
+      "sha256_checksum": null
+    },
+    "landmark_meta": null
+  },
+  {
+    "sample_id": "conv_sample_013_r0",
+    "dataset_name": "Conversational_ISL_Corpus",
+    "video_path": null,
+    "pose_path": "data/processed\\conv_sample_013_r0.npy",
+    "signer_id": "signer_06",
+    "task_type": "continuous_translation",
+    "english_text": "I am Nital.",
+    "telugu_text": "నేను నితల్.",
+    "gloss_tokens": [
+      "I",
+      "AM",
+      "NITAL"
+    ],
+    "split": "train",
+    "video_meta": {
+      "duration_sec": 1.48,
+      "fps": 25.0,
+      "frame_count": 37,
+      "width": 1280,
+      "height": 720,
+      "is_corrupt": false,
+      "sha256_checksum": null
+    },
+    "landmark_meta": null
+  },
+  {
+    "sample_id": "custom_hello_indian_sign_languag_1792075504_orig",
+    "dataset_name": "User_Custom_UI_Videos",
+    "video_path": "data/scratch/uploads\\train_b4bacc75-a9ae-406c-97e5-f94a1c8d4267.mp4",
+    "pose_path": "data/processed\\custom_hello_indian_sign_languag_1792075504.npy",
+    "signer_id": "custom_signer",
+    "task_type": "continuous_translation",
+    "english_text": "Hello! Indian Sign Language. Who are you? I am Nital. Where are you from? I am from India.",
+    "telugu_text": "నమస్కారం! Indian Sign Language. మీరు ఎవరు? నేను Nital. ఎక్కడ ఉన్నారు మీరు From. నేను From india.",
+    "gloss_tokens": [
+      "HELLO",
+      "INDIAN",
+      "SIGN",
+      "LANGUAGE",
+      "WHO",
+      "ARE",
+      "YOU",
+      "I",
+      "AM",
+      "NITAL",
+      "WHERE",
+      "ARE",
+      "YOU",
+      "FROM",
+      "I",
+      "AM",
+      "FROM",
+      "INDIA"
+    ],
+    "split": "train",
+    "video_meta": {
+      "duration_sec": 22.23,
+      "fps": 30.0,
+      "frame_count": 667,
+      "width": 720,
+      "height": 1280,
+      "is_corrupt": false,
+      "sha256_checksum": "9b40ed06123feb756262a063bce9b23b3d85a7273879b8acd448e4404ab5a4ce"
+    },
+    "landmark_meta": null
+  },
+  {
+    "sample_id": "custom_hello_indian_sign_languag_1792075504_aug1",
+    "dataset_name": "User_Custom_UI_Videos",
+    "video_path": "data/scratch/uploads\\train_b4bacc75-a9ae-406c-97e5-f94a1c8d4267.mp4",
+    "pose_path": "data/processed\\custom_hello_indian_sign_languag_1792075504_aug1.npy",
+    "signer_id": "custom_signer",
+    "task_type": "continuous_translation",
+    "english_text": "Hello! Indian Sign Language. Who are you? I am Nital. Where are you from? I am from India.",
+    "telugu_text": "నమస్కారం! Indian Sign Language. మీరు ఎవరు? నేను Nital. ఎక్కడ ఉన్నారు మీరు From. నేను From india.",
+    "gloss_tokens": [
+      "HELLO",
+      "INDIAN",
+      "SIGN",
+      "LANGUAGE",
+      "WHO",
+      "ARE",
+      "YOU",
+      "I",
+      "AM",
+      "NITAL",
+      "WHERE",
+      "ARE",
+      "YOU",
+      "FROM",
+      "I",
+      "AM",
+      "FROM",
+      "INDIA"
+    ],
+    "split": "train",
+    "video_meta": {
+      "duration_sec": 22.23,
+      "fps": 30.0,
+      "frame_count": 667,
+      "width": 720,
+      "height": 1280,
+      "is_corrupt": false,
+      "sha256_checksum": "9b40ed06123feb756262a063bce9b23b3d85a7273879b8acd448e4404ab5a4ce"
+    },
+    "landmark_meta": null
+  },
+  {
+    "sample_id": "custom_hello_indian_sign_languag_1792075504_aug2",
+    "dataset_name": "User_Custom_UI_Videos",
+    "video_path": "data/scratch/uploads\\train_b4bacc75-a9ae-406c-97e5-f94a1c8d4267.mp4",
+    "pose_path": "data/processed\\custom_hello_indian_sign_languag_1792075504_aug2.npy",
+    "signer_id": "custom_signer",
+    "task_type": "continuous_translation",
+    "english_text": "Hello! Indian Sign Language. Who are you? I am Nital. Where are you from? I am from India.",
+    "telugu_text": "నమస్కారం! Indian Sign Language. మీరు ఎవరు? నేను Nital. ఎక్కడ ఉన్నారు మీరు From. నేను From india.",
+    "gloss_tokens": [
+      "HELLO",
+      "INDIAN",
+      "SIGN",
+      "LANGUAGE",
+      "WHO",
+      "ARE",
+      "YOU",
+      "I",
+      "AM",
+      "NITAL",
+      "WHERE",
+      "ARE",
+      "YOU",
+      "FROM",
+      "I",
+      "AM",
+      "FROM",
+      "INDIA"
+    ],
+    "split": "train",
+    "video_meta": {
+      "duration_sec": 22.23,
+      "fps": 30.0,
+      "frame_count": 667,
+      "width": 720,
+      "height": 1280,
+      "is_corrupt": false,
+      "sha256_checksum": "9b40ed06123feb756262a063bce9b23b3d85a7273879b8acd448e4404ab5a4ce"
+    },
+    "landmark_meta": null
+  },
+  {
+    "sample_id": "custom_hello_indian_sign_languag_1792075504_aug3",
+    "dataset_name": "User_Custom_UI_Videos",
+    "video_path": "data/scratch/uploads\\train_b4bacc75-a9ae-406c-97e5-f94a1c8d4267.mp4",
+    "pose_path": "data/processed\\custom_hello_indian_sign_languag_1792075504_aug3.npy",
+    "signer_id": "custom_signer",
+    "task_type": "continuous_translation",
+    "english_text": "Hello! Indian Sign Language. Who are you? I am Nital. Where are you from? I am from India.",
+    "telugu_text": "నమస్కారం! Indian Sign Language. మీరు ఎవరు? నేను Nital. ఎక్కడ ఉన్నారు మీరు From. నేను From india.",
+    "gloss_tokens": [
+      "HELLO",
+      "INDIAN",
+      "SIGN",
+      "LANGUAGE",
+      "WHO",
+      "ARE",
+      "YOU",
+      "I",
+      "AM",
+      "NITAL",
+      "WHERE",
+      "ARE",
+      "YOU",
+      "FROM",
+      "I",
+      "AM",
+      "FROM",
+      "INDIA"
+    ],
+    "split": "train",
+    "video_meta": {
+      "duration_sec": 22.23,
+      "fps": 30.0,
+      "frame_count": 667,
+      "width": 720,
+      "height": 1280,
+      "is_corrupt": false,
+      "sha256_checksum": "9b40ed06123feb756262a063bce9b23b3d85a7273879b8acd448e4404ab5a4ce"
+    },
+    "landmark_meta": null
+  },
+  {
+    "sample_id": "custom_we_sign_we_sign_for_human_1792078513_orig",
+    "dataset_name": "User_Custom_UI_Videos",
+    "video_path": "data/scratch/uploads\\train_3951c336-d7d6-4186-a345-d8e422759c1a.mp4",
+    "pose_path": "data/processed\\custom_we_sign_we_sign_for_human_1792078513.npy",
+    "signer_id": "custom_signer",
+    "task_type": "continuous_translation",
+    "english_text": "We sign. We sign for human rights.",
+    "telugu_text": "మేము Sign. మేము Sign For Human Rights.",
+    "gloss_tokens": [
+      "WE",
+      "SIGN",
+      "WE",
+      "SIGN",
+      "FOR",
+      "HUMAN",
+      "RIGHTS"
+    ],
+    "split": "train",
+    "video_meta": {
+      "duration_sec": 4.17,
+      "fps": 30.0,
+      "frame_count": 125,
+      "width": 720,
+      "height": 720,
+      "is_corrupt": false,
+      "sha256_checksum": "7d3516517eb96be7ba22c0de5d6e9faefa8ec8a58159241f6799d8dbc7483b13"
+    },
+    "landmark_meta": null
+  },
+  {
+    "sample_id": "custom_we_sign_we_sign_for_human_1792078513_aug1",
+    "dataset_name": "User_Custom_UI_Videos",
+    "video_path": "data/scratch/uploads\\train_3951c336-d7d6-4186-a345-d8e422759c1a.mp4",
+    "pose_path": "data/processed\\custom_we_sign_we_sign_for_human_1792078513_aug1.npy",
+    "signer_id": "custom_signer",
+    "task_type": "continuous_translation",
+    "english_text": "We sign. We sign for human rights.",
+    "telugu_text": "మేము Sign. మేము Sign For Human Rights.",
+    "gloss_tokens": [
+      "WE",
+      "SIGN",
+      "WE",
+      "SIGN",
+      "FOR",
+      "HUMAN",
+      "RIGHTS"
+    ],
+    "split": "train",
+    "video_meta": {
+      "duration_sec": 4.17,
+      "fps": 30.0,
+      "frame_count": 125,
+      "width": 720,
+      "height": 720,
+      "is_corrupt": false,
+      "sha256_checksum": "7d3516517eb96be7ba22c0de5d6e9faefa8ec8a58159241f6799d8dbc7483b13"
+    },
+    "landmark_meta": null
+  },
+  {
+    "sample_id": "custom_we_sign_we_sign_for_human_1792078513_aug2",
+    "dataset_name": "User_Custom_UI_Videos",
+    "video_path": "data/scratch/uploads\\train_3951c336-d7d6-4186-a345-d8e422759c1a.mp4",
+    "pose_path": "data/processed\\custom_we_sign_we_sign_for_human_1792078513_aug2.npy",
+    "signer_id": "custom_signer",
+    "task_type": "continuous_translation",
+    "english_text": "We sign. We sign for human rights.",
+    "telugu_text": "మేము Sign. మేము Sign For Human Rights.",
+    "gloss_tokens": [
+      "WE",
+      "SIGN",
+      "WE",
+      "SIGN",
+      "FOR",
+      "HUMAN",
+      "RIGHTS"
+    ],
+    "split": "train",
+    "video_meta": {
+      "duration_sec": 4.17,
+      "fps": 30.0,
+      "frame_count": 125,
+      "width": 720,
+      "height": 720,
+      "is_corrupt": false,
+      "sha256_checksum": "7d3516517eb96be7ba22c0de5d6e9faefa8ec8a58159241f6799d8dbc7483b13"
+    },
+    "landmark_meta": null
+  },
+  {
+    "sample_id": "custom_we_sign_we_sign_for_human_1792078513_aug3",
+    "dataset_name": "User_Custom_UI_Videos",
+    "video_path": "data/scratch/uploads\\train_3951c336-d7d6-4186-a345-d8e422759c1a.mp4",
+    "pose_path": "data/processed\\custom_we_sign_we_sign_for_human_1792078513_aug3.npy",
+    "signer_id": "custom_signer",
+    "task_type": "continuous_translation",
+    "english_text": "We sign. We sign for human rights.",
+    "telugu_text": "మేము Sign. మేము Sign For Human Rights.",
+    "gloss_tokens": [
+      "WE",
+      "SIGN",
+      "WE",
+      "SIGN",
+      "FOR",
+      "HUMAN",
+      "RIGHTS"
+    ],
+    "split": "train",
+    "video_meta": {
+      "duration_sec": 4.17,
+      "fps": 30.0,
+      "frame_count": 125,
+      "width": 720,
+      "height": 720,
+      "is_corrupt": false,
+      "sha256_checksum": "7d3516517eb96be7ba22c0de5d6e9faefa8ec8a58159241f6799d8dbc7483b13"
+    },
+    "landmark_meta": null
+  },
+  {
+    "sample_id": "custom_good_morning_good_afterno_1792079032_orig",
+    "dataset_name": "User_Custom_UI_Videos",
+    "video_path": "data/scratch/uploads\\train_7f7d6be6-8937-460a-9803-2aefb0f5b1e6.mp4",
+    "pose_path": "data/processed\\custom_good_morning_good_afterno_1792079032.npy",
+    "signer_id": "custom_signer",
+    "task_type": "continuous_translation",
+    "english_text": "Good Morning. Good Afternoon. Good Evening. Good Night.",
+    "telugu_text": "శుభోదయం. శుభ మధ్యాహ్నం. శుభ సాయంత్రం. శుభరాత్రి.",
+    "gloss_tokens": [
+      "GOOD",
+      "MORNING",
+      "GOOD",
+      "AFTERNOON",
+      "GOOD",
+      "EVENING",
+      "GOOD",
+      "NIGHT"
+    ],
+    "split": "train",
+    "video_meta": {
+      "duration_sec": 19.5,
+      "fps": 26.0,
+      "frame_count": 507,
+      "width": 720,
+      "height": 1280,
+      "is_corrupt": false,
+      "sha256_checksum": "e435ea74372f585213c6f2f31d716f19190a9acdede0d97450fe102966431dcc"
+    },
+    "landmark_meta": null
+  },
+  {
+    "sample_id": "custom_good_morning_good_afterno_1792079032_aug1",
+    "dataset_name": "User_Custom_UI_Videos",
+    "video_path": "data/scratch/uploads\\train_7f7d6be6-8937-460a-9803-2aefb0f5b1e6.mp4",
+    "pose_path": "data/processed\\custom_good_morning_good_afterno_1792079032_aug1.npy",
+    "signer_id": "custom_signer",
+    "task_type": "continuous_translation",
+    "english_text": "Good Morning. Good Afternoon. Good Evening. Good Night.",
+    "telugu_text": "శుభోదయం. శుభ మధ్యాహ్నం. శుభ సాయంత్రం. శుభరాత్రి.",
+    "gloss_tokens": [
+      "GOOD",
+      "MORNING",
+      "GOOD",
+      "AFTERNOON",
+      "GOOD",
+      "EVENING",
+      "GOOD",
+      "NIGHT"
+    ],
+    "split": "train",
+    "video_meta": {
+      "duration_sec": 19.5,
+      "fps": 26.0,
+      "frame_count": 507,
+      "width": 720,
+      "height": 1280,
+      "is_corrupt": false,
+      "sha256_checksum": "e435ea74372f585213c6f2f31d716f19190a9acdede0d97450fe102966431dcc"
+    },
+    "landmark_meta": null
+  },
+  {
+    "sample_id": "custom_good_morning_good_afterno_1792079032_aug2",
+    "dataset_name": "User_Custom_UI_Videos",
+    "video_path": "data/scratch/uploads\\train_7f7d6be6-8937-460a-9803-2aefb0f5b1e6.mp4",
+    "pose_path": "data/processed\\custom_good_morning_good_afterno_1792079032_aug2.npy",
+    "signer_id": "custom_signer",
+    "task_type": "continuous_translation",
+    "english_text": "Good Morning. Good Afternoon. Good Evening. Good Night.",
+    "telugu_text": "శుభోదయం. శుభ మధ్యాహ్నం. శుభ సాయంత్రం. శుభరాత్రి.",
+    "gloss_tokens": [
+      "GOOD",
+      "MORNING",
+      "GOOD",
+      "AFTERNOON",
+      "GOOD",
+      "EVENING",
+      "GOOD",
+      "NIGHT"
+    ],
+    "split": "train",
+    "video_meta": {
+      "duration_sec": 19.5,
+      "fps": 26.0,
+      "frame_count": 507,
+      "width": 720,
+      "height": 1280,
+      "is_corrupt": false,
+      "sha256_checksum": "e435ea74372f585213c6f2f31d716f19190a9acdede0d97450fe102966431dcc"
+    },
+    "landmark_meta": null
+  },
+  {
+    "sample_id": "custom_good_morning_good_afterno_1792079032_aug3",
+    "dataset_name": "User_Custom_UI_Videos",
+    "video_path": "data/scratch/uploads\\train_7f7d6be6-8937-460a-9803-2aefb0f5b1e6.mp4",
+    "pose_path": "data/processed\\custom_good_morning_good_afterno_1792079032_aug3.npy",
+    "signer_id": "custom_signer",
+    "task_type": "continuous_translation",
+    "english_text": "Good Morning. Good Afternoon. Good Evening. Good Night.",
+    "telugu_text": "శుభోదయం. శుభ మధ్యాహ్నం. శుభ సాయంత్రం. శుభరాత్రి.",
+    "gloss_tokens": [
+      "GOOD",
+      "MORNING",
+      "GOOD",
+      "AFTERNOON",
+      "GOOD",
+      "EVENING",
+      "GOOD",
+      "NIGHT"
+    ],
+    "split": "train",
+    "video_meta": {
+      "duration_sec": 19.5,
+      "fps": 26.0,
+      "frame_count": 507,
+      "width": 720,
+      "height": 1280,
+      "is_corrupt": false,
+      "sha256_checksum": "e435ea74372f585213c6f2f31d716f19190a9acdede0d97450fe102966431dcc"
+    },
+    "landmark_meta": null
+  },
+  {
+    "sample_id": "custom_my_name_is_1792079884_orig",
+    "dataset_name": "User_Custom_UI_Videos",
+    "video_path": "data/scratch/uploads\\train_6d747ea2-6519-4f74-9f97-beaed0e8c51e.mp4",
+    "pose_path": "data/processed\\custom_my_name_is_1792079884.npy",
+    "signer_id": "custom_signer",
+    "task_type": "continuous_translation",
+    "english_text": "My name is.",
+    "telugu_text": "నా పేరు.",
+    "gloss_tokens": [
+      "MY",
+      "NAME",
+      "IS"
+    ],
+    "split": "train",
+    "video_meta": {
+      "duration_sec": 10.12,
+      "fps": 25.0,
+      "frame_count": 253,
+      "width": 720,
+      "height": 1280,
+      "is_corrupt": false,
+      "sha256_checksum": "aa23134ac33e3608297eeacdcc90833208b6e228dea91e09e1c42d24897fc8ea"
+    },
+    "landmark_meta": null
+  },
+  {
+    "sample_id": "custom_my_name_is_1792079884_aug1",
+    "dataset_name": "User_Custom_UI_Videos",
+    "video_path": "data/scratch/uploads\\train_6d747ea2-6519-4f74-9f97-beaed0e8c51e.mp4",
+    "pose_path": "data/processed\\custom_my_name_is_1792079884_aug1.npy",
+    "signer_id": "custom_signer",
+    "task_type": "continuous_translation",
+    "english_text": "My name is.",
+    "telugu_text": "నా పేరు.",
+    "gloss_tokens": [
+      "MY",
+      "NAME",
+      "IS"
+    ],
+    "split": "train",
+    "video_meta": {
+      "duration_sec": 10.12,
+      "fps": 25.0,
+      "frame_count": 253,
+      "width": 720,
+      "height": 1280,
+      "is_corrupt": false,
+      "sha256_checksum": "aa23134ac33e3608297eeacdcc90833208b6e228dea91e09e1c42d24897fc8ea"
+    },
+    "landmark_meta": null
+  },
+  {
+    "sample_id": "custom_my_name_is_1792079884_aug2",
+    "dataset_name": "User_Custom_UI_Videos",
+    "video_path": "data/scratch/uploads\\train_6d747ea2-6519-4f74-9f97-beaed0e8c51e.mp4",
+    "pose_path": "data/processed\\custom_my_name_is_1792079884_aug2.npy",
+    "signer_id": "custom_signer",
+    "task_type": "continuous_translation",
+    "english_text": "My name is.",
+    "telugu_text": "నా పేరు.",
+    "gloss_tokens": [
+      "MY",
+      "NAME",
+      "IS"
+    ],
+    "split": "train",
+    "video_meta": {
+      "duration_sec": 10.12,
+      "fps": 25.0,
+      "frame_count": 253,
+      "width": 720,
+      "height": 1280,
+      "is_corrupt": false,
+      "sha256_checksum": "aa23134ac33e3608297eeacdcc90833208b6e228dea91e09e1c42d24897fc8ea"
+    },
+    "landmark_meta": null
+  },
+  {
+    "sample_id": "custom_my_name_is_1792079884_aug3",
+    "dataset_name": "User_Custom_UI_Videos",
+    "video_path": "data/scratch/uploads\\train_6d747ea2-6519-4f74-9f97-beaed0e8c51e.mp4",
+    "pose_path": "data/processed\\custom_my_name_is_1792079884_aug3.npy",
+    "signer_id": "custom_signer",
+    "task_type": "continuous_translation",
+    "english_text": "My name is.",
+    "telugu_text": "నా పేరు.",
+    "gloss_tokens": [
+      "MY",
+      "NAME",
+      "IS"
+    ],
+    "split": "train",
+    "video_meta": {
+      "duration_sec": 10.12,
+      "fps": 25.0,
+      "frame_count": 253,
+      "width": 720,
+      "height": 1280,
+      "is_corrupt": false,
+      "sha256_checksum": "aa23134ac33e3608297eeacdcc90833208b6e228dea91e09e1c42d24897fc8ea"
+    },
+    "landmark_meta": null
+  }
+]
