@@ -236,13 +236,14 @@ export const TrainingStudio: React.FC<TrainingStudioProps> = ({
               )}
               <div className="selected-file-meta">
                 <div className="meta-info">
-                  <span className="file-name">{selectedFile.name}</span>
+                  <span className="file-name" title={selectedFile.name}>{selectedFile.name}</span>
                   <span className="file-size">
                     {(selectedFile.size / (1024 * 1024)).toFixed(1)} MB
                   </span>
                 </div>
                 {!isTraining && (
                   <button
+                    type="button"
                     className="btn-secondary btn-sm"
                     onClick={() => {
                       setSelectedFile(null);

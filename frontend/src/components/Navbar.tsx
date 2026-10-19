@@ -20,42 +20,45 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   return (
     <header className="navbar-container">
-      <div className="navbar-left">
-        <div className="brand-logo">
+      <div className="brand-logo">
+        <div className="brand-icon-wrapper">
           <Sparkles className="brand-icon" />
-          <div className="brand-titles">
-            <span className="brand-name">ISL TRANSLATOR</span>
-            <span className="brand-tagline">Continuous Sign Language AI</span>
-          </div>
         </div>
-
-        <nav className="mode-nav" aria-label="Mode Selection">
-          <button
-            id="btn-mode-live"
-            className={`nav-tab ${activeTab === 'live' ? 'active' : ''}`}
-            onClick={() => setActiveTab('live')}
-          >
-            <Video size={18} />
-            <span>Live Camera</span>
-          </button>
-          <button
-            id="btn-mode-upload"
-            className={`nav-tab ${activeTab === 'upload' ? 'active' : ''}`}
-            onClick={() => setActiveTab('upload')}
-          >
-            <Upload size={18} />
-            <span>Upload Video</span>
-          </button>
-          <button
-            id="btn-mode-train"
-            className={`nav-tab ${activeTab === 'train' ? 'active' : ''}`}
-            onClick={() => setActiveTab('train')}
-          >
-            <Cpu size={18} />
-            <span>Train Studio</span>
-          </button>
-        </nav>
+        <div className="brand-titles">
+          <span className="brand-name">ISL TRANSLATOR</span>
+          <span className="brand-tagline">Continuous Sign Language AI</span>
+        </div>
       </div>
+
+      <nav className="mode-nav" aria-label="Mode Selection">
+        <button
+          id="btn-mode-live"
+          className={`nav-tab ${activeTab === 'live' ? 'active' : ''}`}
+          onClick={() => setActiveTab('live')}
+          type="button"
+        >
+          <Video size={17} />
+          <span>Live Camera</span>
+        </button>
+        <button
+          id="btn-mode-upload"
+          className={`nav-tab ${activeTab === 'upload' ? 'active' : ''}`}
+          onClick={() => setActiveTab('upload')}
+          type="button"
+        >
+          <Upload size={17} />
+          <span>Upload Video</span>
+        </button>
+        <button
+          id="btn-mode-train"
+          className={`nav-tab ${activeTab === 'train' ? 'active' : ''}`}
+          onClick={() => setActiveTab('train')}
+          type="button"
+        >
+          <Cpu size={17} />
+          <span>Train Studio</span>
+        </button>
+      </nav>
 
       <div className="navbar-right">
         {modelStatus && (
@@ -64,10 +67,14 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="status-pill"
             onClick={onOpenModelStatus}
             title="Inspect Model Status"
+            type="button"
           >
             <Activity size={14} className="status-icon-live" />
-            <span className="status-label">
+            <span className="status-label-full">
               {modelStatus.is_trained_checkpoint ? 'Trained Model' : 'Baseline'}: {modelStatus.device.toUpperCase()}
+            </span>
+            <span className="status-label-short">
+              {modelStatus.device.toUpperCase()}
             </span>
           </button>
         )}
@@ -78,8 +85,9 @@ export const Navbar: React.FC<NavbarProps> = ({
           onClick={onOpenHistory}
           title="Session Translation History"
           aria-label="History"
+          type="button"
         >
-          <History size={20} />
+          <History size={19} />
         </button>
 
         <button
@@ -88,8 +96,9 @@ export const Navbar: React.FC<NavbarProps> = ({
           onClick={onOpenSettings}
           title="System Settings"
           aria-label="Settings"
+          type="button"
         >
-          <Settings size={20} />
+          <Settings size={19} />
         </button>
       </div>
     </header>

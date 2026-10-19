@@ -165,14 +165,15 @@ export const VideoUpload: React.FC<VideoUploadProps> = ({
 
           <div className="selected-file-meta">
             <div className="meta-info">
-              <span className="file-name">{selectedFile.name}</span>
+              <span className="file-name" title={selectedFile.name}>{selectedFile.name}</span>
               <span className="file-size">{(selectedFile.size / (1024 * 1024)).toFixed(1)} MB</span>
             </div>
 
             {!isProcessing && (
               <div className="file-action-buttons">
                 <button
-                  className="btn-primary"
+                  type="button"
+                  className="btn-primary btn-action-translate"
                   onClick={handleStartUpload}
                   id="btn-process-video"
                 >
@@ -180,6 +181,7 @@ export const VideoUpload: React.FC<VideoUploadProps> = ({
                 </button>
                 {onOpenTrainStudio && (
                   <button
+                    type="button"
                     className="btn-secondary"
                     onClick={onOpenTrainStudio}
                     title="Open Training Studio to teach the model this video"
@@ -189,6 +191,7 @@ export const VideoUpload: React.FC<VideoUploadProps> = ({
                   </button>
                 )}
                 <button
+                  type="button"
                   className="btn-secondary"
                   onClick={() => {
                     setSelectedFile(null);
